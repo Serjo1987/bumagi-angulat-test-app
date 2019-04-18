@@ -1,0 +1,8 @@
+<div class="auth-component">
+  <input type="text" [(ngModel)]="login" required>
+  <div>
+    <input type="password" id="password" [(ngModel)]="password" required>
+    <span (click)="togglePasswordVisibility($event)"><i class="fas fa-eye"></i></span>
+  </div>
+  <button (click)="auth($event)" [disabled]="disabled">Войти</button>
+</div>

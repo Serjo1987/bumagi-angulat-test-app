@@ -1,0 +1,37 @@
+<div class="list-component">
+  <div class="navigation">
+    <nav>
+      <a href="#" [ngClass]="{active: categories.all}">Все</a>
+      <a href="#" [ngClass]="{active: categories.blocked}">Заблокированные</a>
+      <a href="#" [ngClass]="{active: categories.active}">Активные</a>
+    </nav>
+  </div>
+
+  <img *ngIf="!dataLoaded && !userList" src="/assets/img/preloader.svg" alt="preloader" class="preloader" />
+
+  <div *ngIf="dataLoaded && userList" class="user-list">
+    <div class="list">
+      <ul>
+        <li *ngFor="let user of userList" (click)="openDialog(user)">
+          <div class="user-info">
+            <img [src]="'https://frontend-test.cloud.technokratos.com'+user.avatar" alt="avatar" />
+            <span class="full-name">
+              {{ user.fname }} {{ user.name.charAt(0) }}. {{ user.mname.charAt(0) }}.
+            </span>
+            <span class="balance">
+              Баланс: {{ user.balance.toFixed(2) }}
+            </span>
+            <div>
+              <span class="update">
+                Последнее изменение: {{ getFormatDate(user.lastUpdatedAt) }} секунд назад
+              </span>
+              <span class="status">
+                Статус: {{ getStatus(user.status) }}
+              </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="header">
+  <h1>{{ data.fname }} {{ data.name }}</h1>
+  <a href="#" (click)="closeModal($event)">
+    <i class="material-icons">clear</i>
+  </a>
+</div>
+<div class="content">
+  <input [(ngModel)]="data.fname" type="text">
+  <input [(ngModel)]="data.name" type="text">
+  <input [(ngModel)]="data.mname" type="text">
+  <select>
+    <option *ngFor="let status of statusList | keyvalue" value="status.key" [selected]="data.status == status.key">
+      {{ status.value }}
+    </option>
+  </select>
+</div>
+<div class="footer">
+  <button (click)="editUser($event)" [disabled]="disabled">Сохранить</button>
+</div>

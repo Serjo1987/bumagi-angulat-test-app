@@ -1,0 +1,18 @@
+.error {
+  p, * {
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  p {
+    &:first-child {
+      font-size: 40px;
+    }
+    &:last-child {
+      a {
+        font-size: 20px;
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+}
